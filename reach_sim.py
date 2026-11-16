@@ -1,10 +1,17 @@
 """
-SHARD 连通层实验：生存 ≠ 可达（预审 P0-4 修复）
-====================================================
+SHARD 连通层实验：生存 ≠ 可达（预审 P0-4 修复）+ R2 修正分簇臂（v2）
+=====================================================================
 在随机几何图上放置碎片，簇过程毁伤摧毁节点后：
   - 几何存活率 survival = P(存活碎片数 ≥ k)            （不考虑连通）
   - 可达服务率 reachable = P(同一连通分量内存活碎片 ≥ k)  （k-anycast 真正能凑齐）
 两者的差 = 网络分区的服务惩罚，即论文 Fig.7 的数据源。
+
+v2（2026-11-14）：新增第四臂 clustr2 —— R2 修正分簇。
+  朴素 clust：簇数固定 ≤4，每簇 n/C 片，在 k=⌈n/2⌉ 下每簇 < k，违反 R2
+  基数规则（每簇 ≥ k），分区后任何分量都凑不齐 k 片 → 可达崩塌。
+  clustr2：簇数 C = max(1, ⌊n/k⌋)，保证每簇 ≥ k 片（R2 满足），
+  簇心仍保持 ≥ 2L 分离。验证：R2 修正后分簇的可达率是否恢复。
+  这把论文的 R2 从"架构规则"升级为"有实验证据的必要约束"。
 
 运行（在 sim/ 目录下）：python reach_sim.py    （纯标准库）
 输出：results/reach_results.csv
@@ -25,7 +32,7 @@ M_DISKS = 6
 EPISODES = 600
 NS = [4, 8, 12, 16, 24]
 R0S = [1.5, 2.5, 3.5]
-STRATEGIES = ("rand", "disp", "clust")
+STRATEGIES = ("rand", "disp", "clust", "clustr2")
 
 
 def build_graph(seed):
@@ -85,6 +92,8 @@ def pick_shards(strategy, n, pos, adj, r0, rng):
     """返回承载碎片的节点下标列表"""
     if strategy == "rand":
         return rng.sample(range(N_NODES), n)
+    if strategy == "clustr2":
+        return pick_shards_r2(n, pos, r0)
     if strategy == "disp":
         # 节点上的最大最小散布
         first = max(range(N_NODES), key=lambda i: (pos[i][0] - 5) ** 2 + (pos[i][1] - 5) ** 2)
@@ -132,12 +141,49 @@ def pick_shards(strategy, n, pos, adj, r0, rng):
     return shards[:n]
 
 
+def k_of(n):
+    return max(1, math.ceil(n * 0.5))
+
+
+def pick_shards_r2(n, pos, r0):
+    """R2 修正分簇：簇数 C = max(1, n // k)，保证每簇 ≥ k 片。
+    簇心仍要求彼此分离 ≥ 2L（放不下时退化为最大距离簇心，R2 优先于分离性）。"""
+    k = k_of(n)
+    cmax = max(1, n // k)
+    sep = 2 * r0
+    first = max(range(N_NODES), key=lambda i: (pos[i][0] - 5) ** 2 + (pos[i][1] - 5) ** 2)
+    centers = [first]
+    while len(centers) < cmax:
+        far = [i for i in range(N_NODES)
+               if i not in centers and
+               all(math.dist(pos[i], pos[c]) >= sep for c in centers)]
+        if far:
+            best = max(far, key=lambda i: min(math.dist(pos[i], pos[c]) for c in centers))
+        else:  # 分离约束放不下：R2 优先于分离性
+            best = max((i for i in range(N_NODES) if i not in centers),
+                       key=lambda i: min(math.dist(pos[i], pos[c]) for c in centers))
+        centers.append(best)
+    per = [n // len(centers)] * len(centers)
+    for i in range(n - sum(per)):
+        per[i] += 1
+    # R2 自检：除单簇情形外，每簇片数必须 ≥ k
+    assert len(centers) == 1 or min(per) >= k, "R2 violated: per=%s k=%d" % (per, k)
+    shards = []
+    used = set()
+    for c, m in zip(centers, per):
+        near = sorted((i for i in range(N_NODES) if i not in used),
+                      key=lambda i: math.dist(pos[i], pos[c]))
+        shards.extend(near[:m])
+        used.update(near[:m])
+    return shards[:n]
+
+
 def run_cell(strategy, n, r0, seed):
     pos, adj = build_graph(seed)
     rng = random.Random(seed * 31 + n)
     shards = pick_shards(strategy, n, pos, adj, r0, rng)
     shard_set = set(shards)
-    k = max(1, math.ceil(n * 0.5))
+    k = k_of(n)
     rng2 = random.Random(seed * 977 + int(r0 * 100))
     surv_ok = 0
     reach_ok = 0
@@ -196,18 +242,16 @@ def main():
         f.write(report + "\n")
     print(report)
 
-    # 图：n=16 时各 regime/策略的 存活 vs 可达
+    # 图：n=16 时各 regime/策略的 存活 vs 可达（4 策略）
     n_bar = 16
-    groups = ["L=1.5\nrand", "L=1.5\ndisp", "L=1.5\nclust",
-              "L=2.5\nrand", "L=2.5\ndisp", "L=2.5\nclust",
-              "L=3.5\nrand", "L=3.5\ndisp", "L=3.5\nclust"]
+    groups = ["%s\n%s" % ("L=%.1f" % r0, st) for r0 in R0S for st in STRATEGIES]
     surv_vals, reach_vals = [], []
     for r0 in R0S:
         for strat in STRATEGIES:
             m = [x for x in rows if x["L"] == r0 and x["n"] == n_bar and x["strategy"] == strat][0]
             surv_vals.append(m["survival"])
             reach_vals.append(m["reachable"])
-    W, H, L, T = 720, 420, 70, 50
+    W, H, L, T = 960, 420, 70, 50
     pw, ph = W - L - 40, H - T - 80
     gw = pw / len(groups)
     bw = gw * 0.36
