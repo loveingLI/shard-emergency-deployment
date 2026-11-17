@@ -1,0 +1,78 @@
+SHARD 敏感性扫描（500 轮/cell，种子固定）
+================================================================
+
+[A] 相图：regime 符号判定 vs 定理预测（E[θ] vs c）
+   符号一致率： 38 / 42 cells
+   c=0.20 m=1  E[th]=0.845  A4=1.000  A64=1.000  ben=+0.000  pred=beneficial
+   c=0.30 m=1  E[th]=0.845  A4=0.972  A64=1.000  ben=+0.028  pred=beneficial
+   c=0.40 m=1  E[th]=0.847  A4=0.988  A64=1.000  ben=+0.012  pred=beneficial
+   c=0.50 m=1  E[th]=0.844  A4=0.988  A64=1.000  ben=+0.012  pred=beneficial
+   c=0.60 m=1  E[th]=0.847  A4=0.876  A64=1.000  ben=+0.124  pred=beneficial
+   c=0.70 m=1  E[th]=0.843  A4=0.874  A64=0.996  ben=+0.122  pred=beneficial
+   c=0.80 m=1  E[th]=0.841  A4=0.508  A64=0.714  ben=+0.206  pred=beneficial
+   c=0.20 m=2  E[th]=0.716  A4=0.992  A64=1.000  ben=+0.008  pred=beneficial
+   c=0.30 m=2  E[th]=0.711  A4=0.944  A64=1.000  ben=+0.056  pred=beneficial
+   c=0.40 m=2  E[th]=0.712  A4=0.912  A64=1.000  ben=+0.088  pred=beneficial
+   c=0.50 m=2  E[th]=0.712  A4=0.920  A64=1.000  ben=+0.080  pred=beneficial
+   c=0.60 m=2  E[th]=0.715  A4=0.638  A64=0.916  ben=+0.278  pred=beneficial
+   c=0.70 m=2  E[th]=0.716  A4=0.716  A64=0.586  ben=-0.130  pred=beneficial
+   c=0.80 m=2  E[th]=0.711  A4=0.254  A64=0.144  ben=-0.110  pred=harmful
+   c=0.20 m=3  E[th]=0.607  A4=0.980  A64=1.000  ben=+0.020  pred=beneficial
+   c=0.30 m=3  E[th]=0.604  A4=0.784  A64=1.000  ben=+0.216  pred=beneficial
+   c=0.40 m=3  E[th]=0.599  A4=0.820  A64=0.990  ben=+0.170  pred=beneficial
+   c=0.50 m=3  E[th]=0.606  A4=0.794  A64=0.914  ben=+0.120  pred=beneficial
+   c=0.60 m=3  E[th]=0.602  A4=0.474  A64=0.520  ben=+0.046  pred=beneficial
+   c=0.70 m=3  E[th]=0.598  A4=0.494  A64=0.138  ben=-0.356  pred=harmful
+   c=0.80 m=3  E[th]=0.601  A4=0.154  A64=0.018  ben=-0.136  pred=harmful
+   c=0.20 m=4  E[th]=0.513  A4=0.932  A64=1.000  ben=+0.068  pred=beneficial
+   c=0.30 m=4  E[th]=0.517  A4=0.698  A64=0.994  ben=+0.296  pred=beneficial
+   c=0.40 m=4  E[th]=0.515  A4=0.716  A64=0.880  ben=+0.164  pred=beneficial
+   c=0.50 m=4  E[th]=0.515  A4=0.710  A64=0.568  ben=-0.142  pred=beneficial
+   c=0.60 m=4  E[th]=0.517  A4=0.306  A64=0.186  ben=-0.120  pred=harmful
+   c=0.70 m=4  E[th]=0.511  A4=0.330  A64=0.030  ben=-0.300  pred=harmful
+   c=0.80 m=4  E[th]=0.517  A4=0.090  A64=0.000  ben=-0.090  pred=harmful
+   c=0.20 m=6  E[th]=0.376  A4=0.834  A64=0.966  ben=+0.132  pred=beneficial
+   c=0.30 m=6  E[th]=0.367  A4=0.480  A64=0.728  ben=+0.248  pred=beneficial
+   c=0.40 m=6  E[th]=0.371  A4=0.496  A64=0.350  ben=-0.146  pred=harmful
+   c=0.50 m=6  E[th]=0.373  A4=0.464  A64=0.120  ben=-0.344  pred=harmful
+   c=0.60 m=6  E[th]=0.367  A4=0.130  A64=0.012  ben=-0.118  pred=harmful
+   c=0.70 m=6  E[th]=0.368  A4=0.190  A64=0.000  ben=-0.190  pred=harmful
+   c=0.80 m=6  E[th]=0.379  A4=0.040  A64=0.000  ben=-0.040  pred=harmful
+   c=0.20 m=8  E[th]=0.267  A4=0.718  A64=0.772  ben=+0.054  pred=beneficial
+   c=0.30 m=8  E[th]=0.272  A4=0.276  A64=0.334  ben=+0.058  pred=harmful
+   c=0.40 m=8  E[th]=0.268  A4=0.258  A64=0.094  ben=-0.164  pred=harmful
+   c=0.50 m=8  E[th]=0.267  A4=0.276  A64=0.012  ben=-0.264  pred=harmful
+   c=0.60 m=8  E[th]=0.268  A4=0.098  A64=0.000  ben=-0.098  pred=harmful
+   c=0.70 m=8  E[th]=0.271  A4=0.068  A64=0.000  ben=-0.068  pred=harmful
+   c=0.80 m=8  E[th]=0.275  A4=0.014  A64=0.000  ben=-0.014  pred=harmful
+
+[A] 定理极限对照：A(64) vs 经验 P(θ≥c)
+   平均 |A64 - P(θ≥c)| = 0.0166  最大 = 0.1140
+
+[B] 码率扫描（L=2.5, n=16, 可达率）
+   c=0.33 k= 6 C=2 rand    surv=0.918 reach=0.677
+   c=0.33 k= 6 C=2 disp    surv=0.977 reach=0.642
+   c=0.33 k= 6 C=2 clust   surv=0.902 reach=0.444
+   c=0.33 k= 6 C=2 clustr2 surv=0.823 reach=0.716
+   c=0.50 k= 8 C=2 rand    surv=0.753 reach=0.483
+   c=0.50 k= 8 C=2 disp    surv=0.831 reach=0.380
+   c=0.50 k= 8 C=2 clust   surv=0.759 reach=0.272
+   c=0.50 k= 8 C=2 clustr2 surv=0.712 reach=0.517
+   c=0.67 k=11 C=1 rand    surv=0.336 reach=0.196
+   c=0.67 k=11 C=1 disp    surv=0.254 reach=0.086
+   c=0.67 k=11 C=1 clust   surv=0.357 reach=0.057
+   c=0.67 k=11 C=1 clustr2 surv=0.426 reach=0.339
+
+[C] 节点密度扫描（L=2.5, n=16, k=8, 可达率）
+   N= 50 rand    surv=0.743 reach=0.195 gap=0.548
+   N= 50 disp    surv=0.800 reach=0.115 gap=0.685
+   N= 50 clust   surv=0.760 reach=0.093 gap=0.667
+   N= 50 clustr2 surv=0.707 reach=0.342 gap=0.365
+   N= 80 rand    surv=0.753 reach=0.483 gap=0.270
+   N= 80 disp    surv=0.831 reach=0.380 gap=0.452
+   N= 80 clust   surv=0.759 reach=0.272 gap=0.488
+   N= 80 clustr2 surv=0.712 reach=0.517 gap=0.195
+   N=120 rand    surv=0.725 reach=0.595 gap=0.131
+   N=120 disp    surv=0.827 reach=0.603 gap=0.224
+   N=120 clust   surv=0.760 reach=0.515 gap=0.245
+   N=120 clustr2 surv=0.714 reach=0.646 gap=0.068

@@ -18,6 +18,8 @@ network-level reachability. All findings replicate on a real ISP topology
 python shard_sim_v2.py   # main experiment: 3 placement arms x 3 hazard regimes (~2-5 min)
 python reach_sim.py      # connectivity layer: survival vs. k-anycast reachability, 4 arms (~2-5 min)
 python zoo_sim.py        # real-topology validation on Kdl (Topology Zoo) (~2-5 min)
+python sens_sim.py       # sensitivity: phase diagram + code-rate/density sweeps (~4-8 min; imports reach_sim)
+python ci_report.py     # Wilson 95% CIs for every cell in results/*.csv (<5 s)
 python gdda_sim.py       # adaptive-control material (see caveats below)
 ```
 
@@ -29,10 +31,13 @@ All outputs are written to `results/` as CSV tables and native SVG figures.
 shard_sim_v2.py   main experiment (three arms: random / dispersion / clustered)
 reach_sim.py      connectivity-layer experiment, four arms (A_R metric)
 zoo_sim.py        real-ISP-topology validation (Topology Zoo, Kdl graph)
+sens_sim.py       sensitivity sweeps (imports reach_sim): (c, m) phase diagram,
+                  code-rate sweep, node-density sweep
+ci_report.py      Wilson 95% confidence intervals for every reported cell
 topozoo/          Kdl.graphml — Topology Zoo dataset file (Knight et al., JSAC 2011)
 gdda_sim.py       legacy adaptive-control prototype (see caveats)
 spread_sim.py     superseded v1 prototype (archived)
-results/          all raw data (CSV), summaries (TXT) and figures (SVG)
+results/          all raw data (CSV), summaries (TXT), CI report (TXT) and figures (SVG)
 PAPER_MAPPING.md  output-to-paper figure/table mapping (Chinese)
 ```
 
@@ -48,6 +53,10 @@ PAPER_MAPPING.md  output-to-paper figure/table mapping (Chinese)
 | `reach_sim.py` | `results/reach_results.csv`, `reach_summary.txt` | Table 4 data source |
 | `zoo_sim.py` | `results/fig_zoo.svg` | Fig. 8 — reachability on the real Kdl topology |
 | `zoo_sim.py` | `results/zoo_results.csv`, `zoo_summary.txt` | §6.4 real-topology table data source |
+| `sens_sim.py` | `results/fig_sens_phase.svg` | Fig. 9 — regime phase diagram + mixture-limit check over 42 (c, m) cells |
+| `sens_sim.py` | `results/fig_sens_reach.svg` | Fig. 10 — code-rate and node-density sweeps |
+| `sens_sim.py` | `results/sens_phase.csv`, `sens_reach.csv`, `sens_summary.txt` | §6.5 data source |
+| `ci_report.py` | `results/ci_report.txt` | 95% Wilson CIs cited in §6 (methodology, §6.1/§6.3/§6.4/§6.5 annotations) |
 | `gdda_sim.py` | `results/fig_locality.svg`, `fig_sla.svg`, `stability.csv` | §4.4 adaptive control (draft material) |
 
 ## Headline results (Monte Carlo, fixed seeds, run 2026-11-12)
@@ -71,6 +80,20 @@ reachable service at n=16 (rand/disp/naive-clust/R2-clust) — weak regime
 0.235/0.170/0.360/**0.540** (R2-clustering beats dispersion by 3.2×).
 Dispersion's survival–reachability gap reaches 0.51 while the
 R2-corrected arm's stays at 0.02–0.05 in every regime.
+
+**Sensitivity sweeps (sens_sim.py, run 2026-11-17)** —
+(i) *Phase diagram*: over a 42-cell (code rate c × disaster strength m)
+grid, using the i.i.d. random-placement ensemble of the mixture-limit
+theorem, |A(64) − P(θ ≥ c)| averages **0.017**; the redundancy-benefit sign
+matches the E[θ]-vs-c regime prediction in 38/42 cells, with all
+exceptions in a narrow transition band or saturated cells — Theorem 1's
+regime boundary verified across the parameter plane.
+(ii) *Code-rate sweep*: R2-clustered placement ranks first in reachability
+at every c ∈ {1/3, 1/2, 2/3} (0.716 / 0.517 / 0.339); the c=1/2 column
+reproduces the main §6.3 table digit-for-digit; high code rates suffer a
+double penalty (larger quorum + collapsed region count).
+(iii) *Density sweep*: the survival–reachability gap contracts monotonically
+with mesh density; on sparse meshes (N=50) R2's leadership is widest.
 
 ## Model summary
 

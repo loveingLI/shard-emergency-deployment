@@ -10,12 +10,14 @@ cd sim
 python shard_sim_v2.py   # 主实验：三臂放置 × 三 regime + 混合极限交叉验证（约 2 分钟）
 python reach_sim.py      # 连通层实验：生存 vs 可达，四臂（约 2 分钟）
 python zoo_sim.py        # 真实 ISP 拓扑验证（Topology Zoo Kdl，约 2 分钟）
+python sens_sim.py       # 敏感性扫描：相图 + 码率 + 密度（约 4 分钟）
 ```
 
 依赖：**仅 Python 3 标准库**（含 GraphML 解析，用标准库 xml.etree），
 无第三方依赖，可直接开源（投稿时作为 artifact）。
 所有随机种子固定，结果可复现。`zoo_sim.py` 需要 `topozoo/Kdl.graphml`
-（随仓库分发，来源见脚本头注）。
+（随仓库分发，来源见脚本头注）；`sens_sim.py` 复用 `reach_sim.py`
+（同目录 import）。
 
 ## 文件 → 论文图表映射
 
@@ -29,6 +31,9 @@ python zoo_sim.py        # 真实 ISP 拓扑验证（Topology Zoo Kdl，约 2 �
 | reach_sim.py | results/reach_results.csv / summary.txt | Table 4 数据源 |
 | zoo_sim.py | results/fig_zoo.svg | Fig. 8（真实拓扑上的可达率，3 regime × 4 臂） |
 | zoo_sim.py | results/zoo_results.csv / summary.txt | §6.4 Table 数据源（Kdl 验证） |
+| sens_sim.py | results/fig_sens_phase.svg | Fig. 9（相图 + 混合极限全域验证） |
+| sens_sim.py | results/fig_sens_reach.svg | Fig. 10（码率/密度扫描） |
+| sens_sim.py | results/sens_phase.csv / sens_reach.csv / summary.txt | §6.5 数据源 |
 
 ## 核心结果速览（30/15 个种子、2026-11-12 运行）
 
@@ -63,6 +68,8 @@ vs 散布差 3.2 倍）。散布的生存-可达 gap 达 0.51，R2 分簇仅 0.0
 ## 待办（论文 TODO 清单对应）
 
 - [x] 接入 Topology Zoo 真实拓扑（zoo_sim.py，2026-11-17 完成）
+- [x] 敏感性扫描 m/c/ρ（sens_sim.py，2026-11-17 完成：42 cell 相图 +
+      码率扫描 + 密度扫描，详见 results/sens_summary.txt）
 - [ ] 置信区间：每单元已多种子，成稿前统一报 95% CI
 - [ ] 分簇的修正臂（每簇 ≥ k 片，基数规则 R2 的对照验证）
 - [ ] 参数敏感性：m（灾情强度）、c（码率）、节点密度扫描

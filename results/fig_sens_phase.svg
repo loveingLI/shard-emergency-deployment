@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 400" font-family="Helvetica,Arial,sans-serif">
+<rect width="980" height="400" fill="#ffffff"/>
+<text x="490" y="26" font-size="15" font-weight="bold" fill="#222">Sensitivity: regime phase diagram and mixture-limit check</text>
+<line x1="70" y1="350.0" x2="490" y2="350.0" stroke="#ececec"/>
+<text x="64" y="353.0" font-size="10" fill="#777" text-anchor="end">0.22</text>
+<line x1="70" y1="294.0" x2="490" y2="294.0" stroke="#ececec"/>
+<text x="64" y="297.0" font-size="10" fill="#777" text-anchor="end">0.35</text>
+<line x1="70" y1="238.0" x2="490" y2="238.0" stroke="#ececec"/>
+<text x="64" y="241.0" font-size="10" fill="#777" text-anchor="end">0.49</text>
+<line x1="70" y1="182.0" x2="490" y2="182.0" stroke="#ececec"/>
+<text x="64" y="185.0" font-size="10" fill="#777" text-anchor="end">0.63</text>
+<line x1="70" y1="126.0" x2="490" y2="126.0" stroke="#ececec"/>
+<text x="64" y="129.0" font-size="10" fill="#777" text-anchor="end">0.76</text>
+<line x1="70" y1="70.0" x2="490" y2="70.0" stroke="#ececec"/>
+<text x="64" y="73.0" font-size="10" fill="#777" text-anchor="end">0.90</text>
+<text x="70.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.2</text>
+<text x="140.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.3</text>
+<text x="210.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.4</text>
+<text x="280.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.5</text>
+<text x="350.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.6</text>
+<text x="420.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.7</text>
+<text x="490.0" y="366" font-size="10" fill="#777" text-anchor="middle">0.8</text>
+<rect x="35.0" y="56.5" width="70.0" height="70.0" fill="rgb(110,40,130)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="56.5" width="70.0" height="70.0" fill="rgb(105,52,126)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="55.6" width="70.0" height="70.0" fill="rgb(108,45,128)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="57.0" width="70.0" height="70.0" fill="rgb(108,45,128)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="55.8" width="70.0" height="70.0" fill="rgb(86,97,110)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="57.2" width="70.0" height="70.0" fill="rgb(87,96,110)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="58.3" width="70.0" height="70.0" fill="rgb(70,135,96)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="35.0" y="109.4" width="70.0" height="70.0" fill="rgb(109,43,129)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="111.5" width="70.0" height="70.0" fill="rgb(99,65,121)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="111.3" width="70.0" height="70.0" fill="rgb(93,80,116)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="111.3" width="70.0" height="70.0" fill="rgb(95,77,117)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="109.9" width="70.0" height="70.0" fill="rgb(56,168,84)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="109.8" width="70.0" height="70.0" fill="rgb(175,100,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="111.5" width="70.0" height="70.0" fill="rgb(171,90,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="35.0" y="154.3" width="70.0" height="70.0" fill="rgb(107,49,127)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="155.8" width="70.0" height="70.0" fill="rgb(68,140,94)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="157.9" width="70.0" height="70.0" fill="rgb(77,118,102)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="154.7" width="70.0" height="70.0" fill="rgb(87,95,110)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="156.3" width="70.0" height="70.0" fill="rgb(101,61,123)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="158.3" width="70.0" height="70.0" fill="rgb(220,205,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="157.1" width="70.0" height="70.0" fill="rgb(176,103,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="35.0" y="193.0" width="70.0" height="70.0" fill="rgb(97,71,119)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="191.3" width="70.0" height="70.0" fill="rgb(52,177,81)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="192.3" width="70.0" height="70.0" fill="rgb(78,116,103)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="192.3" width="70.0" height="70.0" fill="rgb(177,105,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="191.4" width="70.0" height="70.0" fill="rgb(173,95,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="194.1" width="70.0" height="70.0" fill="rgb(208,179,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="191.7" width="70.0" height="70.0" fill="rgb(167,81,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="35.0" y="249.6" width="70.0" height="70.0" fill="rgb(85,101,108)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="253.3" width="70.0" height="70.0" fill="rgb(62,154,89)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="251.5" width="70.0" height="70.0" fill="rgb(178,107,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="250.8" width="70.0" height="70.0" fill="rgb(217,199,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="253.1" width="70.0" height="70.0" fill="rgb(173,94,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="252.7" width="70.0" height="70.0" fill="rgb(187,128,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="248.4" width="70.0" height="70.0" fill="rgb(157,58,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="35.0" y="294.4" width="70.0" height="70.0" fill="rgb(100,65,121)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="105.0" y="292.3" width="70.0" height="70.0" fill="rgb(99,66,121)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="175.0" y="294.2" width="70.0" height="70.0" fill="rgb(182,116,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="245.0" y="294.4" width="70.0" height="70.0" fill="rgb(201,162,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="315.0" y="293.9" width="70.0" height="70.0" fill="rgb(169,85,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="385.0" y="292.9" width="70.0" height="70.0" fill="rgb(163,71,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<rect x="455.0" y="291.2" width="70.0" height="70.0" fill="rgb(152,46,100)" stroke="#fff" stroke-width="1" opacity="0.92"/>
+<text x="280" y="384" font-size="12" fill="#222" text-anchor="middle">code rate c</text>
+<text x="18" y="210" font-size="11" fill="#666" transform="rotate(-90 24 210)">E[theta]</text>
+<text x="80" y="56" font-size="12" font-weight="bold" fill="#222">Phase diagram: A(64)-A(4)</text>
+<text x="80" y="68" font-size="10" fill="#555">dashed: E[theta] = c</text>
+<rect x="550" y="70" width="400" height="280" fill="none" stroke="#999"/>
+<line x1="550" y1="350.0" x2="950" y2="350.0" stroke="#ececec"/>
+<text x="544" y="353.0" font-size="10" fill="#777" text-anchor="end">0.00</text>
+<line x1="550" y1="294.0" x2="950" y2="294.0" stroke="#ececec"/>
+<text x="544" y="297.0" font-size="10" fill="#777" text-anchor="end">0.20</text>
+<line x1="550" y1="238.0" x2="950" y2="238.0" stroke="#ececec"/>
+<text x="544" y="241.0" font-size="10" fill="#777" text-anchor="end">0.40</text>
+<line x1="550" y1="182.0" x2="950" y2="182.0" stroke="#ececec"/>
+<text x="544" y="185.0" font-size="10" fill="#777" text-anchor="end">0.60</text>
+<line x1="550" y1="126.0" x2="950" y2="126.0" stroke="#ececec"/>
+<text x="544" y="129.0" font-size="10" fill="#777" text-anchor="end">0.80</text>
+<line x1="550" y1="70.0" x2="950" y2="70.0" stroke="#ececec"/>
+<text x="544" y="73.0" font-size="10" fill="#777" text-anchor="end">1.00</text>
+<line x1="550" y1="350" x2="950" y2="70" stroke="#333" stroke-width="1.4"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(110,40,130)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(105,52,126)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(108,45,128)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(108,45,128)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(86,97,110)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="71.1" r="4.5" fill="rgb(87,96,110)" fill-opacity="0.85"/>
+<circle cx="881.2" cy="150.1" r="4.5" fill="rgb(70,135,96)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(109,43,129)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(99,65,121)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(93,80,116)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(95,77,117)" fill-opacity="0.85"/>
+<circle cx="939.6" cy="93.5" r="4.5" fill="rgb(56,168,84)" fill-opacity="0.85"/>
+<circle cx="778.0" cy="185.9" r="4.5" fill="rgb(175,100,100)" fill-opacity="0.85"/>
+<circle cx="597.2" cy="309.7" r="4.5" fill="rgb(171,90,100)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(107,49,127)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(68,140,94)" fill-opacity="0.85"/>
+<circle cx="949.2" cy="72.8" r="4.5" fill="rgb(77,118,102)" fill-opacity="0.85"/>
+<circle cx="926.0" cy="94.1" r="4.5" fill="rgb(87,95,110)" fill-opacity="0.85"/>
+<circle cx="747.6" cy="204.4" r="4.5" fill="rgb(101,61,123)" fill-opacity="0.85"/>
+<circle cx="588.4" cy="311.4" r="4.5" fill="rgb(220,205,100)" fill-opacity="0.85"/>
+<circle cx="553.2" cy="345.0" r="4.5" fill="rgb(176,103,100)" fill-opacity="0.85"/>
+<circle cx="950.0" cy="70.0" r="4.5" fill="rgb(97,71,119)" fill-opacity="0.85"/>
+<circle cx="949.2" cy="71.7" r="4.5" fill="rgb(52,177,81)" fill-opacity="0.85"/>
+<circle cx="920.4" cy="103.6" r="4.5" fill="rgb(78,116,103)" fill-opacity="0.85"/>
+<circle cx="765.2" cy="191.0" r="4.5" fill="rgb(177,105,100)" fill-opacity="0.85"/>
+<circle cx="610.0" cy="297.9" r="4.5" fill="rgb(173,95,100)" fill-opacity="0.85"/>
+<circle cx="556.4" cy="341.6" r="4.5" fill="rgb(208,179,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(167,81,100)" fill-opacity="0.85"/>
+<circle cx="942.8" cy="79.5" r="4.5" fill="rgb(85,101,108)" fill-opacity="0.85"/>
+<circle cx="862.0" cy="146.2" r="4.5" fill="rgb(62,154,89)" fill-opacity="0.85"/>
+<circle cx="687.6" cy="252.0" r="4.5" fill="rgb(178,107,100)" fill-opacity="0.85"/>
+<circle cx="580.4" cy="316.4" r="4.5" fill="rgb(217,199,100)" fill-opacity="0.85"/>
+<circle cx="552.4" cy="346.6" r="4.5" fill="rgb(173,94,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(187,128,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(157,58,100)" fill-opacity="0.85"/>
+<circle cx="881.2" cy="133.8" r="4.5" fill="rgb(100,65,121)" fill-opacity="0.85"/>
+<circle cx="695.6" cy="256.5" r="4.5" fill="rgb(99,66,121)" fill-opacity="0.85"/>
+<circle cx="576.4" cy="323.7" r="4.5" fill="rgb(182,116,100)" fill-opacity="0.85"/>
+<circle cx="554.8" cy="346.6" r="4.5" fill="rgb(201,162,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(169,85,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(163,71,100)" fill-opacity="0.85"/>
+<circle cx="550.0" cy="350.0" r="4.5" fill="rgb(152,46,100)" fill-opacity="0.85"/>
+<text x="750" y="366" font-size="10" fill="#777" text-anchor="middle">P(theta &gt;= c) (measured)</text>
+<text x="560" y="56" font-size="12" font-weight="bold" fill="#222">Mixture-limit check: A(64) vs P(theta&gt;=c)</text>
+<text x="560" y="68" font-size="10" fill="#555">solid: y = x (Theorem 1)</text>
+<text x="14" y="210" font-size="11" fill="#666" transform="rotate(-90 504 210)">A(64)</text>
+<rect x="70" y="374" width="14" height="10" fill="rgb(220,205,100)"/>
+<text x="88" y="383" font-size="11" fill="#333">harmful (ben&lt;0)</text>
+<rect x="240" y="374" width="14" height="10" fill="rgb(110,40,130)"/>
+<text x="258" y="383" font-size="11" fill="#333">neutral</text>
+<rect x="410" y="374" width="14" height="10" fill="rgb(40,205,70)"/>
+<text x="428" y="383" font-size="11" fill="#333">beneficial (ben&gt;0)</text>
+</svg>
