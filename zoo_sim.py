@@ -37,6 +37,7 @@ import random
 import csv
 import os
 import statistics
+import zlib
 
 TOPO_FILE = os.path.join("topozoo", "Kdl.graphml")
 M_DISKS = 6
@@ -202,7 +203,10 @@ def theta_area_sample(disks, r0, rng):
 
 # ---------------------------------------------------------------- 主实验
 def run_cell(strategy, n, r0, seed):
-    rng = random.Random(hash((strategy, n, r0, seed)) & 0xFFFFFFFF)
+    # 种子必须跨进程稳定：内置 hash() 对含字符串的输入受 PYTHONHASHSEED
+    # 随机化影响（同脚本两次运行结果不同），故改用 zlib.crc32 稳定散列。
+    rng = random.Random(zlib.crc32(
+        repr((strategy, n, r0, seed)).encode("utf-8")) & 0xFFFFFFFF)
     k = max(1, math.ceil(n * 0.5))
     surv, reach, th_n, th_a = 0, 0, [], []
     for _ in range(EPISODES):
@@ -296,7 +300,7 @@ def main():
                 f.write("r0=%.0f %-7s gap=%.3f\n" % (r0, s, m["survival"] - m["reachable"]))
 
     # ---------------- 出图：3 面板（每 regime 一panel），可达率 vs n，4 臂
-    PW, PH, ML, MT, GAP = 220, 190, 46, 40, 18
+    PW, PH, ML, MT, GAP = 220, 190, 46, 46, 18
     W = ML * 2 + PW * 3 + GAP * 2
     H = MT + PH + 52
     COL = {"rand": "#4477aa", "disp": "#ee6677", "clust": "#aa3377", "clustr2": "#228833"}
@@ -305,7 +309,8 @@ def main():
     svg = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" '
            'font-family="Helvetica,Arial,sans-serif">' % (W, H),
            '<rect width="%d" height="%d" fill="#ffffff"/>' % (W, H),
-           '<text x="%d" y="24" font-size="15" font-weight="bold" fill="#222">'
+           '<text x="%d" y="16" font-size="15" font-weight="bold" fill="#222" '
+           'text-anchor="middle">'
            'SHARD on real ISP topology (Kdl): reachable service vs fragment count'
            '</text>' % (W // 2)]
     for pi, r0 in enumerate(R0S):
@@ -319,9 +324,9 @@ def main():
             svg.append('<text x="%d" y="%.1f" font-size="10" fill="#666" '
                        'text-anchor="end">%.1f</text>'
                        % (x0 - 4, y + 3, gy * ymax / 5))
-        sub_th = statistics.mean(r["theta_area"] for r in rows if r["r0"] == r0)
+        sub_th = statistics.mean(r["theta_node"] for r in rows if r["r0"] == r0)
         svg.append('<text x="%d" y="%d" font-size="12" font-weight="bold" fill="#222" '
-                   'text-anchor="middle">r0=%.0f km (E[#]: %.2f)</text>'
+                   'text-anchor="middle">r0=%.0f km (E[θ]: %.2f)</text>'
                    % (x0 + PW // 2, MT - 12, r0, sub_th))
         for s in STRATEGIES:
             pts = []

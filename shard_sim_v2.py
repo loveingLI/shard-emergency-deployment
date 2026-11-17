@@ -184,8 +184,8 @@ def polyline_svg(path, title, ylabel, xlabels, series, ymax=1.0):
 
 def bars_svg(path, title, ylabel, groups, series, ymax=1.0):
     """groups: [group_label]; series: [(label, color, values per group)]"""
-    W, H, L, T = 700, 400, 70, 46
-    pw, ph = W - L - 60, H - T - 70
+    W, H, L, T = 800, 400, 70, 46
+    pw, ph = 570, H - T - 70   # 画区宽度固定，右侧留白放图例（W 加宽不挤压图例）
     gw = pw / len(groups)
     bw = gw / (len(series) + 1)
 

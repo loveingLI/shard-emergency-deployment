@@ -23,16 +23,16 @@ python sens_sim.py       # 敏感性扫描：相图 + 码率 + 密度（约 4 �
 
 | 脚本 | 输出 | 论文位置 |
 |---|---|---|
-| shard_sim_v2.py | results/fig_regime_L15/25/35.svg | Fig. 4（三个 regime 的 A(n) 曲线） |
-| shard_sim_v2.py | results/fig_theory.svg | Fig. 5（散布曲线收敛于定理极限 P(θ≥c)） |
-| shard_sim_v2.py | results/fig_flip.svg | Fig. 6（n=48 几何反转柱状图） |
-| shard_sim_v2.py | results/shard_v2_results.csv / summary.txt | Table 3 数据源 |
-| reach_sim.py | results/fig_reach.svg | Fig. 7（生存 vs 可达缺口，合成图） |
-| reach_sim.py | results/reach_results.csv / summary.txt | Table 4 数据源 |
-| zoo_sim.py | results/fig_zoo.svg | Fig. 8（真实拓扑上的可达率，3 regime × 4 臂） |
+| shard_sim_v2.py | results/fig_regime_L15/25/35.svg | Fig. 1(a–c)（三个 regime 的 A(n) 曲线） |
+| shard_sim_v2.py | results/fig_theory.svg | Fig. 2（散布曲线收敛于定理极限 P(θ≥c)） |
+| shard_sim_v2.py | results/fig_flip.svg | Fig. 3（n=48 几何反转柱状图） |
+| shard_sim_v2.py | results/shard_v2_results.csv / summary.txt | Table 1 数据源（§6.1 regime 汇总表） |
+| reach_sim.py | results/fig_reach.svg | Fig. 4（生存 vs 可达缺口，合成图） |
+| reach_sim.py | results/reach_results.csv / summary.txt | Table 3 数据源（§6.3 四臂主表） |
+| zoo_sim.py | results/fig_zoo.svg | Fig. 5（真实拓扑上的可达率，3 regime × 4 臂） |
 | zoo_sim.py | results/zoo_results.csv / summary.txt | §6.4 Table 数据源（Kdl 验证） |
-| sens_sim.py | results/fig_sens_phase.svg | Fig. 9（相图 + 混合极限全域验证） |
-| sens_sim.py | results/fig_sens_reach.svg | Fig. 10（码率/密度扫描） |
+| sens_sim.py | results/fig_sens_phase.svg | Fig. 6（相图 + 混合极限全域验证） |
+| sens_sim.py | results/fig_sens_reach.svg | Fig. 7（码率/密度扫描） |
 | sens_sim.py | results/sens_phase.csv / sens_reach.csv / summary.txt | §6.5 数据源 |
 
 ## 核心结果速览（30/15 个种子、2026-11-12 运行）
@@ -48,11 +48,11 @@ python sens_sim.py       # 敏感性扫描：相图 + 码率 + 密度（约 4 �
 | 二次反转 | 连通层下随机放置可达率最高，散布最差（几何存活与网络可聚性互相冲突） |
 | R2 修正 | R2 分簇可达率全场第一（L=2.5, n=16: 0.517 vs 朴素 0.272），gap 0.487→0.195 |
 
-**真实拓扑验证**（zoo_sim.py，Kdl 709 节点，2026-11-17 运行）：
-E[θ_node]={0.78, 0.64, 0.43} 与合成 regime 对齐，四条结论全部复现——
-n=16 可达率（rand/disp/clust/clustr2）：弱 0.860/0.860/0.865/**0.907**；
-中 0.588/0.487/0.645/**0.782**；强 0.235/0.170/0.360/**0.540**（R2 分簇
-vs 散布差 3.2 倍）。散布的生存-可达 gap 达 0.51，R2 分簇仅 0.02–0.05。
+**真实拓扑验证**（zoo_sim.py，Kdl 709 节点，2026-11-17 运行，种子已修复为
+跨进程确定性）：E[θ_node]={0.78, 0.64, 0.43} 与合成 regime 对齐，四条结论
+全部复现——n=16 可达率（rand/disp/clust/clustr2）：弱 0.865/0.830/0.885/**0.892**；
+中 0.565/0.535/0.665/**0.815**；强 0.253/0.128/0.372/**0.565**（R2 分簇
+vs 散布差 4.4 倍）。散布的生存-可达 gap 达 0.59，R2 分簇仅 0.00–0.07。
 
 ## 已知诚实边界（写进论文 Discussion 的内容）
 

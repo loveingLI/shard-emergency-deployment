@@ -45,16 +45,16 @@ PAPER_MAPPING.md  output-to-paper figure/table mapping (Chinese)
 
 | Script | Output | Paper location |
 |---|---|---|
-| `shard_sim_v2.py` | `results/fig_regime_L15/25/35.svg` | Fig. 4 — A(n) curves in three hazard regimes |
-| `shard_sim_v2.py` | `results/fig_theory.svg` | Fig. 5 — simulated dispersion curve vs. mixture-limit bound P(θ ≥ c) |
-| `shard_sim_v2.py` | `results/fig_flip.svg` | Fig. 6 — geometry reversal at n=48 |
-| `shard_sim_v2.py` | `results/shard_v2_results.csv`, `shard_v2_summary.txt` | Table 3 data source |
-| `reach_sim.py` | `results/fig_reach.svg` | Fig. 7 — survival vs. reachability gap, four arms |
-| `reach_sim.py` | `results/reach_results.csv`, `reach_summary.txt` | Table 4 data source |
-| `zoo_sim.py` | `results/fig_zoo.svg` | Fig. 8 — reachability on the real Kdl topology |
+| `shard_sim_v2.py` | `results/fig_regime_L15/25/35.svg` | Fig. 1(a–c) — A(n) curves in three hazard regimes |
+| `shard_sim_v2.py` | `results/fig_theory.svg` | Fig. 2 — simulated dispersion curve vs. mixture-limit bound P(θ ≥ c) |
+| `shard_sim_v2.py` | `results/fig_flip.svg` | Fig. 3 — geometry reversal at n=48 |
+| `shard_sim_v2.py` | `results/shard_v2_results.csv`, `shard_v2_summary.txt` | Table 1 data source (§6.1 regime summary) |
+| `reach_sim.py` | `results/fig_reach.svg` | Fig. 4 — survival vs. reachability gap, four arms |
+| `reach_sim.py` | `results/reach_results.csv`, `reach_summary.txt` | Table 3 data source (§6.3 four-arm main table) |
+| `zoo_sim.py` | `results/fig_zoo.svg` | Fig. 5 — reachability on the real Kdl topology |
 | `zoo_sim.py` | `results/zoo_results.csv`, `zoo_summary.txt` | §6.4 real-topology table data source |
-| `sens_sim.py` | `results/fig_sens_phase.svg` | Fig. 9 — regime phase diagram + mixture-limit check over 42 (c, m) cells |
-| `sens_sim.py` | `results/fig_sens_reach.svg` | Fig. 10 — code-rate and node-density sweeps |
+| `sens_sim.py` | `results/fig_sens_phase.svg` | Fig. 6 — regime phase diagram + mixture-limit check over 42 (c, m) cells |
+| `sens_sim.py` | `results/fig_sens_reach.svg` | Fig. 7 — code-rate and node-density sweeps |
 | `sens_sim.py` | `results/sens_phase.csv`, `sens_reach.csv`, `sens_summary.txt` | §6.5 data source |
 | `ci_report.py` | `results/ci_report.txt` | 95% Wilson CIs cited in §6 (methodology, §6.1/§6.3/§6.4/§6.5 annotations) |
 | `gdda_sim.py` | `results/fig_locality.svg`, `fig_sla.svg`, `stability.csv` | §4.4 adaptive control (draft material) |
@@ -73,13 +73,14 @@ Mixture-limit bound P(θ ≥ c) with rate c = 1/2: **L=1.5 → 1.000; L=2.5 → 
 | R2-corrected clustering | best reachability at every tested n under moderate/strong correlation (0.517 vs 0.272 naive, n=16, L=2.5); gap shrinks 0.487 → 0.195 |
 
 **Real-topology validation (zoo_sim.py, Kdl / Kentucky Datalink, 709 nodes,
-run 2026-11-17)** — hazard radii calibrated so E[θ_node] = {0.78, 0.64, 0.43}
-matches the synthetic regimes; all four findings replicate, some sharper:
-reachable service at n=16 (rand/disp/naive-clust/R2-clust) — weak regime
-0.860/0.860/0.865/**0.907**; moderate 0.588/0.487/0.645/**0.782**; strong
-0.235/0.170/0.360/**0.540** (R2-clustering beats dispersion by 3.2×).
-Dispersion's survival–reachability gap reaches 0.51 while the
-R2-corrected arm's stays at 0.02–0.05 in every regime.
+deterministic seeds, run 2026-11-17)** — hazard radii calibrated so
+E[θ_node] = {0.78, 0.64, 0.43} matches the synthetic regimes; all four
+findings replicate, some sharper: reachable service at n=16
+(rand/disp/naive-clust/R2-clust) — weak regime
+0.865/0.830/0.885/**0.892**; moderate 0.565/0.535/0.665/**0.815**; strong
+0.253/0.128/0.372/**0.565** (R2-clustering beats dispersion by 4.4×).
+Dispersion's survival–reachability gap reaches 0.59 while the
+R2-corrected arm's stays at 0.00–0.07 in every regime.
 
 **Sensitivity sweeps (sens_sim.py, run 2026-11-17)** —
 (i) *Phase diagram*: over a 42-cell (code rate c × disaster strength m)

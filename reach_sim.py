@@ -251,8 +251,8 @@ def main():
             m = [x for x in rows if x["L"] == r0 and x["n"] == n_bar and x["strategy"] == strat][0]
             surv_vals.append(m["survival"])
             reach_vals.append(m["reachable"])
-    W, H, L, T = 960, 420, 70, 50
-    pw, ph = W - L - 40, H - T - 80
+    W, H, L, T = 1160, 420, 70, 50
+    pw, ph = 850, H - T - 80   # 画区宽度固定，右侧留白放图例（W 加宽不挤压图例）
     gw = pw / len(groups)
     bw = gw * 0.36
     s = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="100%%">' % (W, H),
