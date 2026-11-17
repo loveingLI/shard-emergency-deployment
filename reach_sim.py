@@ -211,8 +211,8 @@ def main():
     alive_set = set()
     os.makedirs("results", exist_ok=True)
     rows = []
-    print(">> 连通层实验（3 regime x %d 个 n x 3 策略，每单元 %d 轮，5 图种子取均值）..."
-          % (len(NS), EPISODES))
+    print(">> 连通层实验（3 regime x %d 个 n x %d 策略，每单元 %d 轮，5 图种子取均值）..."
+          % (len(NS), len(STRATEGIES), EPISODES))
     for r0 in R0S:
         for n in NS:
             for strat in STRATEGIES:

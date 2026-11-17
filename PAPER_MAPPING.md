@@ -8,11 +8,14 @@ Post-Disaster Network-Cloud Systems》的全部实验代码。
 ```bash
 cd sim
 python shard_sim_v2.py   # 主实验：三臂放置 × 三 regime + 混合极限交叉验证（约 2 分钟）
-python reach_sim.py      # 连通层实验：生存 vs 可达（约 2 分钟）
+python reach_sim.py      # 连通层实验：生存 vs 可达，四臂（约 2 分钟）
+python zoo_sim.py        # 真实 ISP 拓扑验证（Topology Zoo Kdl，约 2 分钟）
 ```
 
-依赖：**仅 Python 3 标准库**，无第三方依赖，可直接开源（投稿时作为 artifact）。
-所有随机种子固定，结果可复现。
+依赖：**仅 Python 3 标准库**（含 GraphML 解析，用标准库 xml.etree），
+无第三方依赖，可直接开源（投稿时作为 artifact）。
+所有随机种子固定，结果可复现。`zoo_sim.py` 需要 `topozoo/Kdl.graphml`
+（随仓库分发，来源见脚本头注）。
 
 ## 文件 → 论文图表映射
 
@@ -22,8 +25,10 @@ python reach_sim.py      # 连通层实验：生存 vs 可达（约 2 分钟）
 | shard_sim_v2.py | results/fig_theory.svg | Fig. 5（散布曲线收敛于定理极限 P(θ≥c)） |
 | shard_sim_v2.py | results/fig_flip.svg | Fig. 6（n=48 几何反转柱状图） |
 | shard_sim_v2.py | results/shard_v2_results.csv / summary.txt | Table 3 数据源 |
-| reach_sim.py | results/fig_reach.svg | Fig. 7（生存 vs 可达缺口） |
+| reach_sim.py | results/fig_reach.svg | Fig. 7（生存 vs 可达缺口，合成图） |
 | reach_sim.py | results/reach_results.csv / summary.txt | Table 4 数据源 |
+| zoo_sim.py | results/fig_zoo.svg | Fig. 8（真实拓扑上的可达率，3 regime × 4 臂） |
+| zoo_sim.py | results/zoo_results.csv / summary.txt | §6.4 Table 数据源（Kdl 验证） |
 
 ## 核心结果速览（30/15 个种子、2026-11-12 运行）
 
@@ -36,6 +41,13 @@ python reach_sim.py      # 连通层实验：生存 vs 可达（约 2 分钟）
 | 几何反转 | n=48 时：L=1.5 散布胜 (1.000 vs 0.994)；L=2.5 分簇胜 (0.821 vs 0.773)；L=3.5 分簇胜 (0.337 vs 0.308) |
 | 可达缺口 | L=2.5, n=4, 散布：几何存活 0.839 → 可达服务仅 0.323（缺口 0.52） |
 | 二次反转 | 连通层下随机放置可达率最高，散布最差（几何存活与网络可聚性互相冲突） |
+| R2 修正 | R2 分簇可达率全场第一（L=2.5, n=16: 0.517 vs 朴素 0.272），gap 0.487→0.195 |
+
+**真实拓扑验证**（zoo_sim.py，Kdl 709 节点，2026-11-17 运行）：
+E[θ_node]={0.78, 0.64, 0.43} 与合成 regime 对齐，四条结论全部复现——
+n=16 可达率（rand/disp/clust/clustr2）：弱 0.860/0.860/0.865/**0.907**；
+中 0.588/0.487/0.645/**0.782**；强 0.235/0.170/0.360/**0.540**（R2 分簇
+vs 散布差 3.2 倍）。散布的生存-可达 gap 达 0.51，R2 分簇仅 0.02–0.05。
 
 ## 已知诚实边界（写进论文 Discussion 的内容）
 
@@ -45,10 +57,12 @@ python reach_sim.py      # 连通层实验：生存 vs 可达（约 2 分钟）
    其可达率崩塌正是 R2 必要性的实验证据，不是 bug。
 3. 定理对"随机放置系综"严格成立；固定放置在有限 n 有波动
    （L=3.5 时散布 n=64 = 0.294 略低于极限 0.343，属有限 n 效应）。
+4. 真实拓扑实验只覆盖一个 ISP 足迹（Kdl）；其余 Zoo 图作为
+   artifact 扩展列出，不作为论文声明的覆盖面。
 
 ## 待办（论文 TODO 清单对应）
 
-- [ ] 接入 Topology Zoo 真实拓扑替换合成图（`build_graph` 一处改动）
+- [x] 接入 Topology Zoo 真实拓扑（zoo_sim.py，2026-11-17 完成）
 - [ ] 置信区间：每单元已多种子，成稿前统一报 95% CI
 - [ ] 分簇的修正臂（每簇 ≥ k 片，基数规则 R2 的对照验证）
 - [ ] 参数敏感性：m（灾情强度）、c（码率）、节点密度扫描

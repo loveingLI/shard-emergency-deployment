@@ -1,0 +1,27 @@
+SHARD Topology Zoo 验证（Kdl, Kentucky Datalink, 709 节点, 2049kmx1957km）
+灾害: 6 圆盘/轮, 400 轮/单元, k=ceil(n/2)
+
+== regime 实测 theta（节点存活率/面积存活率, 各 n 平均）==
+r0=230km: th_node=0.782  th_area=0.796
+r0=310km: th_node=0.641  th_area=0.667
+r0=430km: th_node=0.428  th_area=0.473
+
+== n=16 关键对照（可达率）==
+r0(km)   rand      disp      clust     clustr2  
+230      0.860     0.860     0.865     0.907    
+310      0.588     0.487     0.645     0.782    
+430      0.235     0.170     0.360     0.540    
+
+== n=16 生存-可达 gap（生存率 - 可达率）==
+r0=230 rand    gap=0.123
+r0=230 disp    gap=0.140
+r0=230 clust   gap=0.093
+r0=230 clustr2 gap=0.020
+r0=310 rand    gap=0.277
+r0=310 disp    gap=0.508
+r0=310 clust   gap=0.162
+r0=310 clustr2 gap=0.028
+r0=430 rand    gap=0.150
+r0=430 disp    gap=0.482
+r0=430 clust   gap=0.133
+r0=430 clustr2 gap=0.047
